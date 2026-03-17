@@ -1,8 +1,7 @@
 import { Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import type { NaftaData } from "@/types/data";
-import { getTodayName } from "@/lib/days";
-
+import { getTodayName, matchesToday } from "@/lib/days";
 interface TodayDealsProps {
   data: NaftaData;
 }
@@ -15,13 +14,13 @@ export function TodayDeals({ data }: TodayDealsProps) {
 
   for (const est of data.estaciones) {
     for (const b of est.bancos) {
-      if (b.nivel === "alto" && b.dia === today) {
+      if (b.nivel === "alto" && matchesToday(b.dia))
         deals.push({ banco: b.banco, pct: b.pct, detalle: b.detalle, estacion: est.nombre, color: est.color });
       }
     }
   }
   for (const g of data.descuentos_generales) {
-    if (g.nivel === "alto" && g.dia === today) {
+    if (g.nivel === "alto" && matchesToday(g.dia))
       deals.push({ banco: g.banco, pct: g.pct, detalle: g.detalle, estacion: "Todas", color: "#6B7280" });
     }
   }
