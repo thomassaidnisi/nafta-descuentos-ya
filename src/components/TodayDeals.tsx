@@ -1,4 +1,5 @@
 import { Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import type { NaftaData } from "@/types/data";
 import { getTodayName } from "@/lib/days";
 
@@ -25,39 +26,38 @@ export function TodayDeals({ data }: TodayDealsProps) {
     }
   }
 
-  if (deals.length === 0) {
-    return (
-      <section className="container mx-auto px-4 py-6">
-        <div className="rounded-lg border bg-card p-6 text-center">
-          <p className="text-muted-foreground">No hay descuentos destacados para hoy ({today}).</p>
-          <p className="mt-1 text-sm text-muted-foreground">Revisá los descuentos por día debajo.</p>
-        </div>
-      </section>
-    );
-  }
+  if (deals.length === 0) return null;
 
   return (
-    <section className="container mx-auto px-4 py-6">
-      <div className="mb-4 flex items-center gap-2">
-        <Sparkles className="h-5 w-5 text-amber" />
-        <h2 className="text-lg font-bold">Mejores descuentos hoy — {today}</h2>
+    <section className="container mx-auto px-4 py-8">
+      <div className="mb-5 flex items-center gap-2">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-amber/10">
+          <Sparkles className="h-4 w-4 text-amber" />
+        </div>
+        <h2 className="font-display text-xl font-bold">Mejores descuentos hoy</h2>
+        <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-semibold text-primary">{today}</span>
       </div>
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {deals.map((d, i) => (
-          <div
+          <motion.div
             key={i}
-            className="relative overflow-hidden rounded-lg border bg-card p-4 transition-shadow hover:shadow-md"
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: i * 0.08 }}
+            className="group relative overflow-hidden rounded-2xl border bg-card p-5 transition-all hover:shadow-lg hover:-translate-y-0.5"
           >
-            <div className="absolute left-0 top-0 h-full w-1" style={{ backgroundColor: d.color }} />
+            <div className="absolute left-0 top-0 h-full w-1 rounded-l-2xl" style={{ backgroundColor: d.color }} />
             <div className="pl-3">
-              <div className="flex items-baseline justify-between">
-                <p className="font-semibold">{d.banco}</p>
-                <span className="font-mono text-2xl font-bold text-nivel-alto">{d.pct}%</span>
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <p className="font-display font-semibold">{d.banco}</p>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{d.estacion}</p>
+                </div>
+                <span className="font-mono text-3xl font-bold text-nivel-alto">{d.pct}%</span>
               </div>
-              <p className="mt-1 text-xs text-muted-foreground">{d.estacion}</p>
-              <p className="mt-1 text-sm text-muted-foreground">{d.detalle}</p>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{d.detalle}</p>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>
