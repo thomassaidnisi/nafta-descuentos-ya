@@ -1,0 +1,238 @@
+{
+  "ultima_actualizacion": "2026-03-17",
+  "mes": "Marzo 2026",
+  "estaciones": [
+    {
+      "id": "ypf",
+      "nombre": "YPF",
+      "color": "#009B77",
+      "combustibles": ["Super", "Infinia", "Diesel", "Infinia Diesel"],
+      "apps": [
+        { "nombre": "Carga nocturna (App YPF)", "detalle": "6% todos los días · 0:00–6:00 am · sin tope" },
+        { "nombre": "App YPF + Débito", "detalle": "10% con pago débito vía app · todos los días · tope $5.000/mes" }
+      ],
+      "bancos": [
+        {
+          "banco": "Banco Macro",
+          "descuento": "30%",
+          "pct": 30,
+          "tope": 25000,
+          "periodo": "mes",
+          "dia": "Miércoles",
+          "detalle": "20% Platinum / 30% Selecta · tope $25.000/mes",
+          "nivel": "alto",
+          "combustibles": ["Super", "Infinia", "Diesel", "Infinia Diesel"]
+        },
+        {
+          "banco": "Banco Nación",
+          "descuento": "20%",
+          "pct": 20,
+          "tope": 15000,
+          "periodo": "mes",
+          "dia": "Jueves",
+          "detalle": "20% con tarjeta de crédito · tope $15.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Super", "Infinia", "Diesel", "Infinia Diesel"]
+        },
+        {
+          "banco": "Banco Galicia",
+          "descuento": "25%",
+          "pct": 25,
+          "tope": 20000,
+          "periodo": "mes",
+          "dia": "Martes",
+          "detalle": "25% Éminent / 20% resto · tope $20.000/mes",
+          "nivel": "alto",
+          "combustibles": ["Super", "Infinia", "Diesel", "Infinia Diesel"]
+        },
+        {
+          "banco": "BBVA",
+          "descuento": "15%",
+          "pct": 15,
+          "tope": 10000,
+          "periodo": "mes",
+          "dia": "Lunes",
+          "detalle": "15% todas las tarjetas · tope $10.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Super", "Infinia"]
+        },
+        {
+          "banco": "Banco Provincia",
+          "descuento": "10%",
+          "pct": 10,
+          "tope": 8000,
+          "periodo": "mes",
+          "dia": "Viernes",
+          "detalle": "10% crédito Visa · tope $8.000/mes",
+          "nivel": "bajo",
+          "combustibles": ["Super", "Diesel"]
+        }
+      ]
+    },
+    {
+      "id": "shell",
+      "nombre": "Shell",
+      "color": "#DD1D21",
+      "combustibles": ["Super", "V-Power", "Diesel", "V-Power Diesel"],
+      "apps": [
+        { "nombre": "Shell Box", "detalle": "5% pagando con Shell Box · todos los días · sin tope" }
+      ],
+      "bancos": [
+        {
+          "banco": "HSBC",
+          "descuento": "25%",
+          "pct": 25,
+          "tope": 18000,
+          "periodo": "mes",
+          "dia": "Martes",
+          "detalle": "25% Premier / 20% resto · tope $18.000/mes",
+          "nivel": "alto",
+          "combustibles": ["Super", "V-Power", "Diesel", "V-Power Diesel"]
+        },
+        {
+          "banco": "Santander",
+          "descuento": "20%",
+          "pct": 20,
+          "tope": 15000,
+          "periodo": "mes",
+          "dia": "Jueves",
+          "detalle": "20% Black / 15% resto · tope $15.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Super", "V-Power", "Diesel", "V-Power Diesel"]
+        },
+        {
+          "banco": "ICBC",
+          "descuento": "15%",
+          "pct": 15,
+          "tope": 12000,
+          "periodo": "mes",
+          "dia": "Miércoles",
+          "detalle": "15% todas las tarjetas · tope $12.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Super", "V-Power"]
+        }
+      ]
+    },
+    {
+      "id": "axion",
+      "nombre": "Axion Energy",
+      "color": "#0033A0",
+      "combustibles": ["Super", "Quantium", "Diesel", "Quantium Diesel"],
+      "apps": [
+        { "nombre": "ON App (Axion)", "detalle": "8% pagando con ON · todos los días · tope $4.000/mes" }
+      ],
+      "bancos": [
+        {
+          "banco": "Banco Patagonia",
+          "descuento": "30%",
+          "pct": 30,
+          "tope": 22000,
+          "periodo": "mes",
+          "dia": "Sábado",
+          "detalle": "30% crédito Visa/Mastercard · tope $22.000/mes",
+          "nivel": "alto",
+          "combustibles": ["Super", "Quantium", "Diesel", "Quantium Diesel"]
+        },
+        {
+          "banco": "Banco Ciudad",
+          "descuento": "20%",
+          "pct": 20,
+          "tope": 16000,
+          "periodo": "mes",
+          "dia": "Lunes",
+          "detalle": "20% crédito · tope $16.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Super", "Quantium", "Diesel", "Quantium Diesel"]
+        },
+        {
+          "banco": "Brubank",
+          "descuento": "10%",
+          "pct": 10,
+          "tope": 5000,
+          "periodo": "mes",
+          "dia": "Domingo",
+          "detalle": "10% con débito Brubank · tope $5.000/mes",
+          "nivel": "bajo",
+          "combustibles": ["Super", "Diesel"]
+        }
+      ]
+    },
+    {
+      "id": "puma",
+      "nombre": "Puma Energy",
+      "color": "#E3A000",
+      "combustibles": ["Euro", "Puma Ron 95", "Diesel", "Puma Diesel 50"],
+      "apps": [],
+      "bancos": [
+        {
+          "banco": "Banco Comafi",
+          "descuento": "20%",
+          "pct": 20,
+          "tope": 12000,
+          "periodo": "mes",
+          "dia": "Viernes",
+          "detalle": "20% crédito Visa · tope $12.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Euro", "Puma Ron 95", "Diesel", "Puma Diesel 50"]
+        },
+        {
+          "banco": "Banco Hipotecario",
+          "descuento": "15%",
+          "pct": 15,
+          "tope": 10000,
+          "periodo": "mes",
+          "dia": "Sábado",
+          "detalle": "15% todas las tarjetas · tope $10.000/mes",
+          "nivel": "medio",
+          "combustibles": ["Euro", "Puma Ron 95", "Diesel"]
+        }
+      ]
+    }
+  ],
+  "descuentos_generales": [
+    {
+      "banco": "Mercado Pago",
+      "descuento": "30%",
+      "pct": 30,
+      "tope": 6000,
+      "periodo": "mes",
+      "dia": "Lunes",
+      "detalle": "Tarjeta de crédito física · tope $6.000/mes",
+      "nivel": "alto",
+      "combustibles": ["Todos"]
+    },
+    {
+      "banco": "Naranja X",
+      "descuento": "15%",
+      "pct": 15,
+      "tope": 8000,
+      "periodo": "mes",
+      "dia": "Martes",
+      "detalle": "15% con Naranja X Visa · tope $8.000/mes",
+      "nivel": "medio",
+      "combustibles": ["Todos"]
+    },
+    {
+      "banco": "Ualá",
+      "descuento": "10%",
+      "pct": 10,
+      "tope": 5000,
+      "periodo": "mes",
+      "dia": "Miércoles",
+      "detalle": "10% con tarjeta Ualá · tope $5.000/mes",
+      "nivel": "bajo",
+      "combustibles": ["Todos"]
+    },
+    {
+      "banco": "Personal Pay",
+      "descuento": "20%",
+      "pct": 20,
+      "tope": 7000,
+      "periodo": "mes",
+      "dia": "Jueves",
+      "detalle": "20% pagando con QR · tope $7.000/mes",
+      "nivel": "medio",
+      "combustibles": ["Todos"]
+    }
+  ]
+}
