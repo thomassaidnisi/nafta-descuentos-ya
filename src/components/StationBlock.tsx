@@ -1,9 +1,9 @@
+import React from "react";
 import { motion } from "framer-motion";
 import type { Station } from "@/types/data";
 import { DiscountCard } from "./DiscountCard";
 import { matchesDay } from "@/lib/days";
 import { Smartphone } from "lucide-react";
-import React from "react";
 
 interface StationBlockProps {
   station: Station;
