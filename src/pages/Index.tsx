@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNaftaData } from "@/hooks/useNaftaData";
 import { useTheme } from "@/hooks/useTheme";
-import { Header } from "@/components/Header";
+import { Hero } from "@/components/Hero";
 import { TodayDeals } from "@/components/TodayDeals";
 import { StationFilters } from "@/components/StationFilters";
 import { StationBlock } from "@/components/StationBlock";
@@ -29,7 +29,7 @@ export default function Index() {
 
   return (
     <div className="min-h-screen">
-      <Header lastUpdate={data.ultima_actualizacion} dark={dark} onToggle={toggle} />
+      <Hero data={data} dark={dark} onToggle={toggle} />
       <TodayDeals data={data} />
 
       <StationFilters
@@ -40,7 +40,7 @@ export default function Index() {
         onDay={setDayFilter}
       />
 
-      <main className="container mx-auto space-y-8 px-4 py-6">
+      <main className="container mx-auto space-y-10 px-4 py-8">
         {filteredStations.map((s) => (
           <StationBlock key={s.id} station={s} dayFilter={dayFilter} />
         ))}
@@ -52,9 +52,9 @@ export default function Index() {
 
       <Calculator data={data} />
 
-      <footer className="border-t py-6 text-center text-xs text-muted-foreground">
-        <p>Descuentos en Nafta · Argentina — {data.mes}</p>
-        <p className="mt-1">Los descuentos pueden cambiar sin previo aviso. Verificá condiciones con tu banco.</p>
+      <footer className="border-t py-8 text-center">
+        <p className="font-display text-sm font-medium text-muted-foreground">Descuentos en Nafta · Argentina</p>
+        <p className="mt-1 text-xs text-muted-foreground">{data.mes} · Los descuentos pueden cambiar sin previo aviso.</p>
       </footer>
     </div>
   );
