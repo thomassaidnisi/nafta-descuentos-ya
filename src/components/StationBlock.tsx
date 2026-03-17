@@ -3,6 +3,7 @@ import type { Station } from "@/types/data";
 import { DiscountCard } from "./DiscountCard";
 import { matchesDay } from "@/lib/days";
 import { Smartphone } from "lucide-react";
+import React from "react";
 
 interface StationBlockProps {
   station: Station;
@@ -10,6 +11,25 @@ interface StationBlockProps {
 }
 
 function StationLogo({ station }: { station: Station }) {
+  const [imgError, setImgError] = React.useState(false);
+  if (!imgError) {
+    return (
+      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl overflow-hidden border"
+        style={{ borderColor: station.color + "30" }}>
+        <img
+          src={`/logos/${station.id}.png`}
+          alt={station.nombre}
+          className="h-full w-full object-contain p-1"
+          onError={() => {
+            fetch(`/logos/${station.id}.jpg`).then(r => {
+              if (r.ok) setImgError(false);
+              else setImgError(true);
+            }).catch(() => setImgError(true));
+          }}
+        />
+      </div>
+    );
+  }
   return (
     <div
       className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm"
