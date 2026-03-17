@@ -6,8 +6,24 @@ export function getTodayName(): string {
 }
 
 export function matchesDay(discountDay: string, filterDay: string | null): boolean {
-  if (!filterDay) return true; // "Todos"
-  return discountDay === filterDay;
+  if (!filterDay) return true;
+  const d = discountDay.toLowerCase();
+  if (d.includes("todos")) return true;
+  const map: Record<string, string[]> = {
+    "Lunes":     ["lunes"],
+    "Martes":    ["martes"],
+    "Miércoles": ["mié", "miercoles", "miércoles"],
+    "Jueves":    ["jueves"],
+    "Viernes":   ["viernes"],
+    "Sábado":    ["sáb", "sabado", "sábado"],
+    "Domingo":   ["dom", "domingo"],
+  };
+  const keys = map[filterDay] || [];
+  return keys.some(k => d.includes(k));
+}
+
+export function matchesToday(discountDay: string): boolean {
+  return matchesDay(discountDay, getTodayName());
 }
 
 export const PREMIUM_FUELS = ["Infinia", "V-Power", "Quantium", "Infinia Diesel", "V-Power Diesel", "Quantium Diesel", "Puma Ron 95", "Puma Diesel 50"];
