@@ -11,35 +11,40 @@ interface StationBlockProps {
 }
 
 function StationLogo({ station }: { station: Station }) {
+  const [imgSrc, setImgSrc] = React.useState(`/logos/${station.id}.png`);
   const [imgError, setImgError] = React.useState(false);
-  if (!imgError) {
+
+  if (imgError) {
     return (
-      <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl overflow-hidden border"
-        style={{ borderColor: station.color + "30" }}>
-        <img
-          src={`/logos/${station.id}.png`}
-          alt={station.nombre}
-          className="h-full w-full object-contain p-1"
-          onError={() => {
-            fetch(`/logos/${station.id}.jpg`).then(r => {
-              if (r.ok) setImgError(false);
-              else setImgError(true);
-            }).catch(() => setImgError(true));
-          }}
-        />
+      <div
+        className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm"
+        style={{ backgroundColor: station.color }}
+      >
+        {station.nombre.slice(0, 2).toUpperCase()}
       </div>
     );
   }
+
   return (
     <div
-      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl text-sm font-bold text-white shadow-sm"
-      style={{ backgroundColor: station.color }}
+      className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl overflow-hidden border"
+      style={{ borderColor: station.color + "30" }}
     >
-      {station.nombre.slice(0, 2).toUpperCase()}
+      <img
+        src={imgSrc}
+        alt={station.nombre}
+        className="h-full w-full object-contain p-1"
+        onError={() => {
+          if (imgSrc.endsWith(".png")) {
+            setImgSrc(`/logos/${station.id}.jpg`);
+          } else {
+            setImgError(true);
+          }
+        }}
+      />
     </div>
   );
 }
-
 export function StationBlock({ station, dayFilter }: StationBlockProps) {
   const filteredBancos = station.bancos.filter((b) => matchesDay(b.dia, dayFilter));
 
