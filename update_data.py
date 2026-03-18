@@ -75,7 +75,7 @@ def actualizar_data():
     print(f"[{datetime.datetime.now()}] Iniciando actualización de data.json...")
 
     message = client.messages.create(
-        model="claude-opus-4-5",
+        model="claude-sonnet-4-6",
         max_tokens=4096,
         tools=[{
             "type": "web_search_20250305",
