@@ -89,8 +89,18 @@ def actualizar_data():
     # Extraer el texto de la respuesta
     texto = ""
     for block in message.content:
-        if block.type == "text":
+        if hasattr(block, 'type') and block.type == "text":
             texto += block.text
+        elif hasattr(block, 'text'):
+            texto += block.text
+
+    # Si no hay texto directo, puede estar en tool_result
+    if not texto.strip():
+        for block in message.content:
+            if hasattr(block, 'type') and block.type == "tool_result":
+                for inner in (block.content or []):
+                    if hasattr(inner, 'text'):
+                        texto += inner.text
 
     # Limpiar posible markdown
     texto = texto.strip()
